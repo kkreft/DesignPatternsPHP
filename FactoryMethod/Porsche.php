@@ -7,19 +7,15 @@
 namespace DesignPatterns\FactoryMethod;
 
 /**
- * Porsche is a german car
+ * Porsche is a german car.
  */
 class Porsche implements Vehicle
 {
-
     public function setColor($rgb)
     {
-        
     }
 
     public function addTuningAMG()
     {
-        
     }
-
 }

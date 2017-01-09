@@ -9,19 +9,18 @@ namespace DesignPatterns\Tests\Facade;
 use DesignPatterns\Facade\Facade as Computer;
 
 /**
- * FacadeTest shows example of facades
+ * FacadeTest shows example of facades.
  */
 class FacadeTest extends \PHPUnit_Framework_TestCase
 {
-
     public function getComputer()
     {
         $bios = $this->getMockBuilder('DesignPatterns\Facade\BiosInterface')
-                ->setMethods(array('launch', 'execute', 'waitForKeyPress'))
+                ->setMethods(['launch', 'execute', 'waitForKeyPress'])
                 ->disableAutoload()
                 ->getMock();
         $operatingSys = $this->getMockBuilder('DesignPatterns\Facade\OsInterface')
-                ->setMethods(array('getName'))
+                ->setMethods(['getName'])
                 ->disableAutoload()
                 ->getMock();
         $bios->expects($this->once())
@@ -33,7 +32,8 @@ class FacadeTest extends \PHPUnit_Framework_TestCase
                 ->will($this->returnValue('Linux'));
 
         $facade = new Computer($bios, $operatingSys);
-        return array(array($facade, $operatingSys));
+
+        return [[$facade, $operatingSys]];
     }
 
     /**
@@ -46,5 +46,4 @@ class FacadeTest extends \PHPUnit_Framework_TestCase
         // but I can access to lower component
         $this->assertEquals('Linux', $os->getName());
     }
-
 }

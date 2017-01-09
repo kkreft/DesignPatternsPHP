@@ -8,11 +8,10 @@ namespace DesignPatterns\AbstractFactory;
 
 /**
  * JsonFactory is a factory for creating a family of JSON component
- * (example for ajax)
+ * (example for ajax).
  */
 class JsonFactory extends AbstractFactory
 {
-
     public function createPicture($path, $name = '')
     {
         return new Json\Picture($path, $name);
@@ -22,5 +21,4 @@ class JsonFactory extends AbstractFactory
     {
         return new Json\Text($content);
     }
-
 }

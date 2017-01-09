@@ -12,7 +12,6 @@ namespace DesignPatterns\Mediator;
  */
 abstract class Colleague
 {
-
     // this ensures no change in subclasses
     private $mediator;
 
@@ -27,5 +26,4 @@ abstract class Colleague
         // in this way, we are sure the concrete colleague knows the mediator
         $this->mediator = $medium;
     }
-
 }

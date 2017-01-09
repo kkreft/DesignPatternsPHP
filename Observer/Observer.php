@@ -3,7 +3,7 @@
 namespace DesignPatterns;
 
 /**
- * Observer pattern
+ * Observer pattern.
  *
  * Purpose:
  * to implement a publish/subscribe behaviour to an object, whenever a "Subject" object changes it's state, the attached
@@ -13,29 +13,29 @@ namespace DesignPatterns;
  * - a message queue system is observed to show the progress of a job in a GUI
  *
  * PHP already defines two interfaces that can help to implement this pattern: SplObserver and SplSubject
- *
  */
 class UserObserver implements \SplObserver
 {
     public function update(\SplSubject $subject)
     {
-        echo get_class($subject) . ' has been updated';
+        echo get_class($subject).' has been updated';
     }
 }
 
 class User implements \SplSubject
 {
-    protected $_data = array();
+    protected $_data = [];
 
     /**
      * @var array
      */
-    protected $_observers = array();
+    protected $_observers = [];
 
     /**
-     * attach a new observer
+     * attach a new observer.
      *
      * @param \SplObserver $observer
+     *
      * @return void
      */
     public function attach(\SplObserver $observer)
@@ -44,9 +44,10 @@ class User implements \SplSubject
     }
 
     /**
-     * detach an observer
+     * detach an observer.
      *
      * @param \SplObserver $observer
+     *
      * @return void
      */
     public function detach(\SplObserver $observer)
@@ -59,8 +60,6 @@ class User implements \SplSubject
     }
 
     /**
-     *
-     *
      * @return void
      */
     public function notify()
@@ -73,10 +72,11 @@ class User implements \SplSubject
 
     /**
      * Ideally one would better write setter/getter for all valid attributes and only call notify()
-     * on attributes that matter when changed
+     * on attributes that matter when changed.
      *
      * @param $name
      * @param $value
+     *
      * @return void
      */
     public function __set($name, $value)

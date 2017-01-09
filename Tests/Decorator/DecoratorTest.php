@@ -9,16 +9,15 @@ namespace DesignPatterns\Tests\Decorator;
 use DesignPatterns\Decorator;
 
 /**
- * DecoratorTest tests the decorator pattern
+ * DecoratorTest tests the decorator pattern.
  */
 class DecoratorTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $service;
 
     protected function setUp()
     {
-        $this->service = new Decorator\Webservice(array('foo' => 'bar'));
+        $this->service = new Decorator\Webservice(['foo' => 'bar']);
     }
 
     public function testJsonDecorator()
@@ -38,7 +37,7 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * The first key-point of this pattern :
+     * The first key-point of this pattern :.
      */
     public function testDecoratorMustImplementsRenderer()
     {
@@ -46,23 +45,22 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Second key-point of this pattern : the decorator is type-hinted
-     * 
+     * Second key-point of this pattern : the decorator is type-hinted.
+     *
      * @expectedException \PHPUnit_Framework_Error
      */
     public function testDecoratorTypeHinted()
     {
-        $this->getMockForAbstractClass('DesignPatterns\Decorator\Decorator', array(new \stdClass()));
+        $this->getMockForAbstractClass('DesignPatterns\Decorator\Decorator', [new \stdClass()]);
     }
 
     /**
-     * The decorator implements and wraps the same interface
+     * The decorator implements and wraps the same interface.
      */
     public function testDecoratorOnlyAcceptRenderer()
     {
         $mock = $this->getMock('DesignPatterns\Decorator\Renderer');
-        $dec = $this->getMockForAbstractClass('DesignPatterns\Decorator\Decorator', array($mock));
+        $dec = $this->getMockForAbstractClass('DesignPatterns\Decorator\Decorator', [$mock]);
         $this->assertNotNull($dec);
     }
-
 }

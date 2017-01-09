@@ -3,7 +3,7 @@
 namespace DesignPatterns\Composite;
 
 /**
- * composite pattern
+ * composite pattern.
  *
  * Purpose:
  * to treat a group of objects the same way as a single instance of the object
@@ -22,7 +22,7 @@ class Form extends FormElement
 
     /**
      * runs through all elements and calls render() on them, then returns the complete representation
-     * of the form
+     * of the form.
      *
      * from the outside, one will not see this and the form will act like a single object instance
      *
@@ -32,7 +32,7 @@ class Form extends FormElement
     {
         $formCode = '';
         foreach ($this->_elements as $element) {
-            $formCode .= $element->render($indent + 1) . PHP_EOL;
+            $formCode .= $element->render($indent + 1).PHP_EOL;
         }
 
         return $formCode;

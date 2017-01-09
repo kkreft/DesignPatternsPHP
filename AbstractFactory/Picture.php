@@ -8,7 +8,6 @@ abstract class Picture implements Media
     protected $_name;
 
     /**
-     *
      * @param string $path
      * @param string $name
      */

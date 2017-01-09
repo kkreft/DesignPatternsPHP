@@ -3,7 +3,7 @@
 namespace DesignPatterns\Decorator;
 
 /**
- * Decorator pattern
+ * Decorator pattern.
  *
  * Purpose:
  * to dynamically add new functionality to class instances
@@ -12,7 +12,6 @@ namespace DesignPatterns\Decorator;
  * - Zend Framework: decorators for Zend_Form_Element instances
  * - Web Service Layer: Decorators JSON and XML for a REST service (in this case, only one of these should be allowed of
  *   course)
- *
  */
 
 /**
@@ -22,13 +21,12 @@ namespace DesignPatterns\Decorator;
  */
 abstract class Decorator implements Renderer
 {
-
     protected $_wrapped;
 
     /**
      * You must type-hint the wrapped component :
      * It ensures you can call renderData() in the subclasses !
-     * 
+     *
      * @param Renderer $wrappable
      */
     public function __construct(Renderer $wrappable)
@@ -36,4 +34,3 @@ abstract class Decorator implements Renderer
         $this->_wrapped = $wrappable;
     }
 }
-

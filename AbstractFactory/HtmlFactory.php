@@ -7,11 +7,10 @@
 namespace DesignPatterns\AbstractFactory;
 
 /**
- * HtmlFactory is a concrete factory for HTML component
+ * HtmlFactory is a concrete factory for HTML component.
  */
 class HtmlFactory extends AbstractFactory
 {
-
     public function createPicture($path, $name = '')
     {
         return new Html\Picture($path, $name);
@@ -21,5 +20,4 @@ class HtmlFactory extends AbstractFactory
     {
         return new Html\Text($content);
     }
-
 }

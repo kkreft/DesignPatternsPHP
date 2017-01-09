@@ -3,18 +3,17 @@
 namespace DesignPatterns;
 
 /**
- * Dependency Injection
+ * Dependency Injection.
  *
  * Purpose:
  * to implement a loosely coupled architecture in order to get better testable, maintainable and extendable code
- * 
+ *
  * Examples:
  * - the Doctrine2 ORM uses dependency injection e.g. for Configuration that is injected into a Connection object. for
  *   testing purposes, one can easily create a mock object of the configuration and inject that into the connection
  *   object
  * - Symfony and Zend Framework 2 already have containers for DI that create objects via a configuration array and
  *   inject them where needed (i.e. in Controllers)
- *
  */
 class Configuration
 {
@@ -22,11 +21,13 @@ class Configuration
 
     /**
      * @param string $host
+     *
      * @return Configuration
      */
     public function setHost($host)
     {
         $this->_host = $host;
+
         return $this; // for a fluent interface
     }
 
@@ -46,7 +47,7 @@ class Connection
     /**
      * here, Configuration gets injected and Connection will get all that it needs from Configuration
      * without DI, the configuration would be created directly in Connection, which is not very good
-     * for testing and extending Connection
+     * for testing and extending Connection.
      *
      * @param Configuration $config
      */

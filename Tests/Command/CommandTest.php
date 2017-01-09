@@ -6,16 +6,15 @@
 
 namespace DesignPatterns\Tests\Command;
 
+use DesignPatterns\Command\HelloCommand;
 use DesignPatterns\Command\Invoker;
 use DesignPatterns\Command\Receiver;
-use DesignPatterns\Command\HelloCommand;
 
 /**
- * CommandTest has the role of the Client in the Command Pattern
+ * CommandTest has the role of the Client in the Command Pattern.
  */
 class CommandTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $invoker;
     protected $receiver;
 
@@ -32,5 +31,4 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $this->expectOutputString('Hello World');
         $this->invoker->run();
     }
-
 }

@@ -3,7 +3,7 @@
 namespace DesignPatterns;
 
 /**
- * iterator pattern
+ * iterator pattern.
  *
  * Purpose:
  * to make an object iterable
@@ -17,7 +17,6 @@ namespace DesignPatterns;
  * Often you would want to implement the Countable interface too, to allow count($object) on your iterable object
  *
  * THIS EXAMPLE ALSO APPLIES THE COMPOSITE PATTERN
- *
  */
 class File
 {
@@ -50,7 +49,7 @@ class Rowset implements \Iterator
     }
 
     /**
-     * composite pattern: run through all rows and process them
+     * composite pattern: run through all rows and process them.
      *
      * @return void
      */
@@ -60,10 +59,10 @@ class Rowset implements \Iterator
         /**
          * THE key feature of the Iterator Pattern is to provide a *public contract*
          * to iterate on a collection without knowing how items are handled inside
-         * the collection. It is not just an easy way to use "foreach"
-         * 
+         * the collection. It is not just an easy way to use "foreach".
+         *
          * One cannot see the point of iterator pattern if you iterate on $this.
-         * This example is unclear and mixed with some Composite pattern ideas. 
+         * This example is unclear and mixed with some Composite pattern ideas.
          */
         foreach ($this as $line => $row) {
             $row->process();

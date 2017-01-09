@@ -3,7 +3,7 @@
 namespace DesignPatterns;
 
 /**
- * Proxy pattern
+ * Proxy pattern.
  *
  * Purpose:
  * to interface to anything that is expensive or impossible to duplicate
@@ -11,7 +11,6 @@ namespace DesignPatterns;
  * Examples:
  * - Doctrine2 uses proxies to implement framework magic (e.g. Lazy initialization) in them, while the user still works
  *   with his own entity classes and will never use nor touch the proxies
- *
  */
 class Record
 {
@@ -23,10 +22,11 @@ class Record
     }
 
     /**
-     * magic setter
+     * magic setter.
      *
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
+     *
      * @return void
      */
     public function __set($name, $value)
@@ -35,9 +35,10 @@ class Record
     }
 
     /**
-     * magic getter
+     * magic getter.
      *
      * @param string $name
+     *
      * @return mixed|null
      */
     public function __get($name)
@@ -45,7 +46,7 @@ class Record
         if (array_key_exists($name, $this->_data)) {
             return $this->_data[(string) $name];
         } else {
-            return null;
+            return;
         }
     }
 }
@@ -80,10 +81,11 @@ class RecordProxy extends Record
     }
 
     /**
-     * magic setter
+     * magic setter.
      *
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
+     *
      * @return void
      */
     public function __set($name, $value)

@@ -10,26 +10,26 @@ use DesignPatterns\ChainOfResponsibilities\Request;
 use DesignPatterns\ChainOfResponsibilities\Responsible;
 
 /**
- * ChainTest tests the CoR
+ * ChainTest tests the CoR.
  */
 class ChainTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $chain;
 
     protected function setUp()
     {
-        $this->chain = new Responsible\FastStorage(array('bar' => 'baz'));
-        $this->chain->append(new Responsible\SlowStorage(array('bar' => 'baz', 'foo' => 'bar')));
+        $this->chain = new Responsible\FastStorage(['bar' => 'baz']);
+        $this->chain->append(new Responsible\SlowStorage(['bar' => 'baz', 'foo' => 'bar']));
     }
 
     public function makeRequest()
     {
         $request = new Request();
         $request->verb = 'get';
-        return array(
-            array($request)
-        );
+
+        return [
+            [$request],
+        ];
     }
 
     /**
@@ -74,5 +74,4 @@ class ChainTest extends \PHPUnit_Framework_TestCase
         // the last rsponsible :
         $this->assertEquals('DesignPatterns\ChainOfResponsibilities\Responsible\SlowStorage', $request->forDebugOnly);
     }
-
 }

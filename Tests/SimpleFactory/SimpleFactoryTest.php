@@ -9,11 +9,10 @@ namespace DesignPatterns\Tests\SimpleFactory;
 use DesignPatterns\SimpleFactory\ConcreteFactory;
 
 /**
- * SimpleFactoryTest tests the Simple Factory pattern
+ * SimpleFactoryTest tests the Simple Factory pattern.
  */
 class SimpleFactoryTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $factory;
 
     protected function setUp()
@@ -23,10 +22,10 @@ class SimpleFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function getType()
     {
-        return array(
-            array('bicycle'),
-            array('other')
-        );
+        return [
+            ['bicycle'],
+            ['other'],
+        ];
     }
 
     /**
@@ -45,5 +44,4 @@ class SimpleFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $this->factory->createVehicle('car');
     }
-
 }

@@ -9,11 +9,10 @@ namespace DesignPatterns\Tests\TemplateMethod;
 use DesignPatterns\TemplateMethod;
 
 /**
- * JourneyTest tests all journeys
+ * JourneyTest tests all journeys.
  */
 class JourneyTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testBeach()
     {
         $journey = new TemplateMethod\BeachJourney();
@@ -29,14 +28,14 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * How to test an abstract template method with PHPUnit
+     * How to test an abstract template method with PHPUnit.
      */
     public function testLasVegas()
     {
         $journey = $this->getMockForAbstractClass('DesignPatterns\TemplateMethod\Journey');
         $journey->expects($this->once())
                 ->method('enjoyVacation')
-                ->will($this->returnCallback(array($this, 'mockUpVacation')));
+                ->will($this->returnCallback([$this, 'mockUpVacation']));
         $this->expectOutputRegex('#Las Vegas#');
         $journey->takeATrip();
     }
@@ -45,5 +44,4 @@ class JourneyTest extends \PHPUnit_Framework_TestCase
     {
         echo "Fear and loathing in Las Vegas\n";
     }
-
 }

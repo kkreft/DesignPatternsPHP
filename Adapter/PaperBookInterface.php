@@ -7,12 +7,11 @@
 namespace DesignPatterns\Adapter;
 
 /**
- * PaperBookInterface is a contract for a book
+ * PaperBookInterface is a contract for a book.
  */
 interface PaperBookInterface
 {
+    public function turnPage();
 
-    function turnPage();
-
-    function open();
+    public function open();
 }

@@ -9,11 +9,10 @@ namespace DesignPatterns\Tests\Iterator;
 use DesignPatterns\Iterator\CardGame;
 
 /**
- * IteratorTest tests the CardGame iterator
+ * IteratorTest tests the CardGame iterator.
  */
 class IteratorTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $deck;
 
     protected function setUp()
@@ -58,11 +57,10 @@ class IteratorTest extends \PHPUnit_Framework_TestCase
     public function testIteratorCombining()
     {
         // a fancy way to add a joker to the deck :
-        $joker = array('JK' => 'Joker');
+        $joker = ['JK' => 'Joker'];
         $newDeck = new \AppendIterator();
         $newDeck->append($this->deck);
         $newDeck->append(new \ArrayIterator($joker));
         $this->assertCount(33, $newDeck);
     }
-
 }

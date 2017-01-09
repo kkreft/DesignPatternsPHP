@@ -3,11 +3,10 @@
 namespace DesignPatterns\Visitor;
 
 /**
- * An example of a Visitee : Group
+ * An example of a Visitee : Group.
  */
 class Group extends Role
 {
-
     /**
      * @var string
      */
@@ -26,7 +25,6 @@ class Group extends Role
      */
     public function getName()
     {
-        return "Group: " . $this->name;
+        return 'Group: '.$this->name;
     }
-
 }

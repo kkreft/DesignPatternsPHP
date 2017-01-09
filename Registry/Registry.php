@@ -3,7 +3,7 @@
 namespace DesignPatterns;
 
 /**
- * Registry pattern
+ * Registry pattern.
  *
  * Purpose:
  * to implement a central storage for objects often used throughout the application, is typically implemented using
@@ -12,9 +12,7 @@ namespace DesignPatterns;
  * Example:
  * - Zend Framework: Zend_Registry holds the application's logger object, front controller etc.
  * - Yii Framework: CWebApplication holds all the application components, such as CWebUser, CUrlManager, etc.
- *
  */
-
 abstract class Registry
 {
     const LOGGER = 'logger';
@@ -23,8 +21,10 @@ abstract class Registry
 
     /**
      * @static
+     *
      * @param string $key
-     * @param mixed $value
+     * @param mixed  $value
+     *
      * @return void
      */
     public static function set($key, $value)
@@ -34,7 +34,9 @@ abstract class Registry
 
     /**
      * @static
+     *
      * @param string $key
+     *
      * @return mixed
      */
     public static function get($key)

@@ -11,22 +11,21 @@ use DesignPatterns\FactoryMethod\GermanFactory;
 use DesignPatterns\FactoryMethod\ItalianFactory;
 
 /**
- * FactoryMethodTest tests the factory method pattern
+ * FactoryMethodTest tests the factory method pattern.
  */
 class FactoryMethodTest extends \PHPUnit_Framework_TestCase
 {
-
-    protected $type = array(
+    protected $type = [
         FactoryMethod::CHEAP,
-        FactoryMethod::FAST
-    );
+        FactoryMethod::FAST,
+    ];
 
     public function getShop()
     {
-        return array(
-            array(new GermanFactory()),
-            array(new ItalianFactory())
-        );
+        return [
+            [new GermanFactory()],
+            [new ItalianFactory()],
+        ];
     }
 
     /**
@@ -51,5 +50,4 @@ class FactoryMethodTest extends \PHPUnit_Framework_TestCase
     {
         $shop->create('spaceship');
     }
-
 }

@@ -8,11 +8,10 @@ namespace DesignPatterns\Command;
 
 /**
  * Invoker is using the command given to it.
- * Example : an Application in SF2
+ * Example : an Application in SF2.
  */
 class Invoker
 {
-
     protected $command;
 
     /**
@@ -30,5 +29,4 @@ class Invoker
         // the invoker is the same whatever is the command
         $this->command->execute();
     }
-
 }

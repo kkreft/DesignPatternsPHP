@@ -5,7 +5,6 @@ namespace DesignPatterns\AbstractFactory;
 abstract class Text implements Media
 {
     /**
-     * 
      * @var string
      */
     protected $_text;

@@ -7,11 +7,10 @@
 namespace DesignPatterns\Builder;
 
 /**
- * CarBuilder builds car
+ * CarBuilder builds car.
  */
 class CarBuilder implements Builder
 {
-
     protected $car;
 
     public function addDoors()
@@ -42,5 +41,4 @@ class CarBuilder implements Builder
     {
         return $this->car;
     }
-
 }
