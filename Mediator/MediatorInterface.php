@@ -8,14 +8,13 @@ namespace DesignPatterns\Mediator;
 
 /**
  * MediatorInterface is a contract for the Mediator
- * This interface is not mandatory but it is better for LSP concerns
+ * This interface is not mandatory but it is better for LSP concerns.
  */
 interface MediatorInterface
 {
+    public function sendResponse($content);
 
-    function sendResponse($content);
+    public function makeRequest();
 
-    function makeRequest();
-
-    function queryDb();
+    public function queryDb();
 }

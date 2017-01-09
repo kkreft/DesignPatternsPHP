@@ -7,16 +7,15 @@
 namespace DesignPatterns\Tests\Mediator;
 
 use DesignPatterns\Mediator\Mediator;
-use DesignPatterns\Mediator\Subsystem\Database;
 use DesignPatterns\Mediator\Subsystem\Client;
+use DesignPatterns\Mediator\Subsystem\Database;
 use DesignPatterns\Mediator\Subsystem\Server;
 
 /**
- * MediatorTest tests hello world
+ * MediatorTest tests hello world.
  */
 class MediatorTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $client;
 
     protected function setUp()
@@ -35,5 +34,4 @@ class MediatorTest extends \PHPUnit_Framework_TestCase
         // Anyway, it remains complexity in the Mediator that's why the pattern
         // Observer is preferable in mnay situations.
     }
-
 }

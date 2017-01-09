@@ -9,11 +9,10 @@ namespace DesignPatterns\Test\Composite;
 use DesignPatterns\Composite;
 
 /**
- * FormTest tests the composite pattern on Form
+ * FormTest tests the composite pattern on Form.
  */
 class FormTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testRender()
     {
         $form = new Composite\Form();
@@ -29,11 +28,10 @@ class FormTest extends \PHPUnit_Framework_TestCase
 
     /**
      * The all point of this pattern, a Composite must inherit from the node
-     * if you want to builld trees
+     * if you want to builld trees.
      */
     public function testFormImplementsFormEelement()
     {
         $this->assertTrue(is_subclass_of('DesignPatterns\Composite\Form', 'DesignPatterns\Composite\FormElement'));
     }
-
 }

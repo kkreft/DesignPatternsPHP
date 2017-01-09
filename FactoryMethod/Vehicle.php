@@ -7,10 +7,9 @@
 namespace DesignPatterns\FactoryMethod;
 
 /**
- * Vehicle is a contract for a vehicle
+ * Vehicle is a contract for a vehicle.
  */
 interface Vehicle
 {
-
-    function setColor($rgb);
+    public function setColor($rgb);
 }

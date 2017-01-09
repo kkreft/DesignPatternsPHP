@@ -11,10 +11,9 @@ use DesignPatterns\ChainOfResponsibilities\Request;
 
 class FastStorage extends Handler
 {
+    protected $_data = [];
 
-    protected $_data = array();
-
-    public function __construct($data = array())
+    public function __construct($data = [])
     {
         $this->_data = $data;
     }
@@ -33,5 +32,4 @@ class FastStorage extends Handler
 
         return false;
     }
-
 }

@@ -4,5 +4,4 @@ namespace DesignPatterns\Builder\Parts;
 
 class Engine
 {
-    
 }

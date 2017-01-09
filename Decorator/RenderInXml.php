@@ -4,7 +4,6 @@ namespace DesignPatterns\Decorator;
 
 class RenderInXml extends Decorator
 {
-
     public function renderData()
     {
         $output = $this->_wrapped->renderData();
@@ -16,5 +15,4 @@ class RenderInXml extends Decorator
 
         return $doc->saveXML();
     }
-
 }

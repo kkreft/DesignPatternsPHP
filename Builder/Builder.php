@@ -8,26 +8,25 @@ namespace DesignPatterns\Builder;
 
 /**
  * Builder is an interface that build parts of a complex object.
- * 
- * Sometime, if the builder has a better knowledge of what it builds, this 
+ *
+ * Sometime, if the builder has a better knowledge of what it builds, this
  * interface could be an abstract class with default methods (aka adapter)
- * 
+ *
  * If you have a complex inheritance tree for vehicles, it is logical to have
  * a complex inheritance tree for builders too.
- * 
+ *
  * Note: Builders have often a fluent interface, see the mock builder of
  * PHPUnit for example.
  */
 interface Builder
 {
+    public function createVehicle();
 
-    function createVehicle();
+    public function addWheel();
 
-    function addWheel();
+    public function addEngine();
 
-    function addEngine();
+    public function addDoors();
 
-    function addDoors();
-
-    function getVehicle();
+    public function getVehicle();
 }

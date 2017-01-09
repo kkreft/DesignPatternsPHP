@@ -9,11 +9,10 @@ namespace DesignPatterns\Mediator\Subsystem;
 use DesignPatterns\Mediator\Colleague;
 
 /**
- * Client is a client that make request et get response
+ * Client is a client that make request et get response.
  */
 class Client extends Colleague
 {
-
     public function request()
     {
         $this->getMediator()->makeRequest();
@@ -23,5 +22,4 @@ class Client extends Colleague
     {
         echo $content;
     }
-
 }

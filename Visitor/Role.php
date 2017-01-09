@@ -3,23 +3,22 @@
 namespace DesignPatterns\Visitor;
 
 /**
- * Visitor Pattern
+ * Visitor Pattern.
  *
  * Purpose:
  * The Visitor Pattern lets you outsource operations on objects to other objects. The main reason to do this is to keep
  * a seperation of concerns. But classes have to define an contract to allow visitors (the "accept" method in the example below).
- * 
- * The contract is an abstract class but you can have also a clean interface. 
+ *
+ * The contract is an abstract class but you can have also a clean interface.
  * In that case, each Visitee has to choose itself which method to invoke on the visitor.
  */
 abstract class Role
 {
-
     /**
-     * This method handles a double dispatch based on the shortname of the Visitee
-     * 
+     * This method handles a double dispatch based on the shortname of the Visitee.
+     *
      * Feel free to override it if your object must call another visiting behavior
-     * 
+     *
      * @param \DesignPatterns\Visitor\RoleVisitor $visitor
      */
     public function accept(RoleVisitor $visitor)
@@ -27,14 +26,13 @@ abstract class Role
         // this trick to simulate double-dispatch based on type-hinting
         $fqcn = get_called_class();
         preg_match('#([^\\\\]+)$#', $fqcn, $extract);
-        $visitingMethod = 'visit' . $extract[1];
+        $visitingMethod = 'visit'.$extract[1];
 
         // this ensures strong typing with visitor interface, not some visitor objects
-        if (!method_exists(__NAMESPACE__ . '\RoleVisitor', $visitingMethod)) {
+        if (!method_exists(__NAMESPACE__.'\RoleVisitor', $visitingMethod)) {
             throw new \InvalidArgumentException("The visitor you provide cannot visit a $fqcn instance");
         }
 
-        call_user_func(array($visitor, $visitingMethod), $this);
+        call_user_func([$visitor, $visitingMethod], $this);
     }
-
 }

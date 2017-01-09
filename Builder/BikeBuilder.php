@@ -7,16 +7,14 @@
 namespace DesignPatterns\Builder;
 
 /**
- * BikeBuilder builds bike
+ * BikeBuilder builds bike.
  */
 class BikeBuilder implements Builder
 {
-
     protected $bike;
 
     public function addDoors()
     {
-        
     }
 
     public function addEngine()
@@ -39,5 +37,4 @@ class BikeBuilder implements Builder
     {
         return $this->bike;
     }
-
 }

@@ -6,15 +6,14 @@
 
 namespace DesignPatterns\Test\DataMapper;
 
-use DesignPatterns\DataMapper\UserMapper;
 use DesignPatterns\DataMapper\User;
+use DesignPatterns\DataMapper\UserMapper;
 
 /**
- * UserMapperTest tests the datamappe pattern
+ * UserMapperTest tests the datamappe pattern.
  */
 class UserMapperTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $mapper;
     protected $dbal;
 
@@ -22,7 +21,7 @@ class UserMapperTest extends \PHPUnit_Framework_TestCase
     {
         $this->dbal = $this->getMockBuilder('DesignPatterns\DataMapper\DBAL')
                 ->disableAutoload()
-                ->setMethods(array('insert', 'update', 'find', 'findAll'))
+                ->setMethods(['insert', 'update', 'find', 'findAll'])
                 ->getMock();
 
         $this->mapper = new UserMapper($this->dbal);
@@ -30,12 +29,12 @@ class UserMapperTest extends \PHPUnit_Framework_TestCase
 
     public function getNewUser()
     {
-        return array(array(new User(null, 'Odysseus', 'Odysseus@ithaca.gr')));
+        return [[new User(null, 'Odysseus', 'Odysseus@ithaca.gr')]];
     }
 
     public function getExistingUser()
     {
-        return array(array(new User(1, 'Odysseus', 'Odysseus@ithaca.gr')));
+        return [[new User(1, 'Odysseus', 'Odysseus@ithaca.gr')]];
     }
 
     /**
@@ -63,7 +62,7 @@ class UserMapperTest extends \PHPUnit_Framework_TestCase
      */
     public function testRestoreOne(User $existing)
     {
-        $rows = new \ArrayIterator(array(array('userid' => 1, 'username' => 'Odysseus', 'email' => 'Odysseus@ithaca.gr')));
+        $rows = new \ArrayIterator([['userid' => 1, 'username' => 'Odysseus', 'email' => 'Odysseus@ithaca.gr']]);
         $this->dbal->expects($this->once())
                 ->method('find')
                 ->with(1)
@@ -78,13 +77,13 @@ class UserMapperTest extends \PHPUnit_Framework_TestCase
      */
     public function testRestoreMulti(User $existing)
     {
-        $rows = array(array('userid' => 1, 'username' => 'Odysseus', 'email' => 'Odysseus@ithaca.gr'));
+        $rows = [['userid' => 1, 'username' => 'Odysseus', 'email' => 'Odysseus@ithaca.gr']];
         $this->dbal->expects($this->once())
                 ->method('findAll')
                 ->will($this->returnValue($rows));
 
         $user = $this->mapper->findAll();
-        $this->assertEquals(array($existing), $user);
+        $this->assertEquals([$existing], $user);
     }
 
     /**
@@ -96,9 +95,8 @@ class UserMapperTest extends \PHPUnit_Framework_TestCase
         $this->dbal->expects($this->once())
                 ->method('find')
                 ->with(404)
-                ->will($this->returnValue(array()));
+                ->will($this->returnValue([]));
 
         $user = $this->mapper->findById(404);
     }
-
 }

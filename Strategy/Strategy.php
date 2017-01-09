@@ -3,7 +3,7 @@
 namespace DesignPatterns;
 
 /**
- * strategy pattern
+ * strategy pattern.
  *
  * Terminology:
  * - Context
@@ -17,15 +17,15 @@ namespace DesignPatterns;
  * Examples:
  * - sorting a list of objects, one strategy by date, the other by id
  * - simplify unit testing: e.g. switching between file and in-memory storage
- *
  */
-
 interface Comparator
 {
     /**
      * @abstract
+     *
      * @param object $a
      * @param object $b
+     *
      * @return bool
      */
     public function compare($a, $b);
@@ -39,7 +39,7 @@ class ObjectCollection
     /**
      * @param array $elements
      */
-    public function __construct(array $elements = array())
+    public function __construct(array $elements = [])
     {
         $this->_elements = $elements;
     }
@@ -49,7 +49,7 @@ class ObjectCollection
      */
     public function sort()
     {
-        $callback = array($this->_comparator, 'compare');
+        $callback = [$this->_comparator, 'compare'];
         uasort($this->_elements, $callback);
 
         return $this->_elements;
@@ -57,6 +57,7 @@ class ObjectCollection
 
     /**
      * @param Comparator $comparator
+     *
      * @return void
      */
     public function setComparator(Comparator $comparator)
@@ -92,16 +93,16 @@ class DateComparator implements Comparator
     }
 }
 
-$elements = array(
-    array(
-        'id' => 2,
+$elements = [
+    [
+        'id'   => 2,
         'date' => '2011-01-01',
-    ),
-    array(
-        'id' => 1,
-        'date' => '2011-02-01'
-    )
-);
+    ],
+    [
+        'id'   => 1,
+        'date' => '2011-02-01',
+    ],
+];
 
 $collection = new ObjectCollection($elements);
 $collection->setComparator(new IdComparator());

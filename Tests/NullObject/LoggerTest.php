@@ -7,15 +7,14 @@
 namespace DesignPatterns\Tests\NullObject;
 
 use DesignPatterns\NullObject\NullLogger;
-use DesignPatterns\NullObject\Service;
 use DesignPatterns\NullObject\PrintLogger;
+use DesignPatterns\NullObject\Service;
 
 /**
- * LoggerTest tests for different loggers
+ * LoggerTest tests for different loggers.
  */
 class LoggerTest extends \PHPUnit_Framework_TestCase
 {
-
     public function testNullObject()
     {
         // one can use a singleton for NullObjet : I don't think it's a good idea
@@ -31,5 +30,4 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
         $this->expectOutputString('We are in DesignPatterns\NullObject\Service::doSomething');
         $service->doSomething();
     }
-
 }

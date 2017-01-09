@@ -3,13 +3,12 @@
 namespace DesignPatterns\Visitor;
 
 /**
- * Visitor Pattern
+ * Visitor Pattern.
  *
  * One example for a visitee. Each visitee has to extends Role
  */
 class User extends Role
 {
-
     /**
      * @var string
      */
@@ -28,8 +27,6 @@ class User extends Role
      */
     public function getName()
     {
-        return "User " . $this->name;
+        return 'User '.$this->name;
     }
-
 }
-

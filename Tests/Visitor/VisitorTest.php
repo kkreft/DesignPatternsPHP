@@ -9,11 +9,10 @@ namespace DesignPatterns\Tests\Visitor;
 use DesignPatterns\Visitor;
 
 /**
- * VisitorTest tests the visitor pattern
+ * VisitorTest tests the visitor pattern.
  */
 class VisitorTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $visitor;
 
     protected function setUp()
@@ -23,10 +22,10 @@ class VisitorTest extends \PHPUnit_Framework_TestCase
 
     public function getRole()
     {
-        return array(
-            array(new Visitor\User("Dominik"), 'Role: User Dominik'),
-            array(new Visitor\Group("Administrators"), 'Role: Group: Administrators')
-        );
+        return [
+            [new Visitor\User('Dominik'), 'Role: User Dominik'],
+            [new Visitor\Group('Administrators'), 'Role: Group: Administrators'],
+        ];
     }
 
     /**
@@ -47,5 +46,4 @@ class VisitorTest extends \PHPUnit_Framework_TestCase
         $mock = $this->getMockForAbstractClass('DesignPatterns\Visitor\Role');
         $mock->accept($this->visitor);
     }
-
 }

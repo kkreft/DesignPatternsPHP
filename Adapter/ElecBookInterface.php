@@ -7,12 +7,11 @@
 namespace DesignPatterns\Adapter;
 
 /**
- * ElecBookInterface is a contract for an electronic book
+ * ElecBookInterface is a contract for an electronic book.
  */
 interface ElecBookInterface
 {
+    public function pressNext();
 
-    function pressNext();
-
-    function pressStart();
+    public function pressStart();
 }
